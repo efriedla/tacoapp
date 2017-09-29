@@ -3,6 +3,7 @@ var db = require('./../models');
 var router = express.Router();
 
 router.get('/', function(req, res) {
+  console.log('*******This is from sessions: ', req.session.lastPage)
   db.taco.findAll().then(function(tacos) {
     res.render('tacos/index', {tacos: tacos});
   }).catch(function(err) {
